@@ -1,0 +1,32 @@
+%%- lecture
+%%- student
+%%- reviews
+erDiagram
+    Lectures{
+        int id PK "과목 ID"
+        string title "과목명"
+        string curriculum "교육과정"
+        date createdDate "작성일"
+    }
+
+    Students{
+        int id PK "학생 ID"
+        string name "학생 이름"
+    }
+
+    Reviews{
+        int id PK "리뷰 ID"
+        int lecturesId FK "과목 ID"
+        string content "리뷰 내용"
+        float rating "평점"
+        date createdDate "작성일"
+    }
+
+    LecturesStudents{
+        int LecturesId FK "과목 아이디"
+        int StudentsId FK "학생 아이디"
+    }
+
+    Lectures ||--o{ Reviews: "has"
+    Lectures ||--|{ LecturesStudents: "has"
+    Students ||--|{ LecturesStudents: "students가 LecturesStudents와 연결되어 있음"

@@ -1,0 +1,4 @@
+## 전체 학생 목록 조회
+GET http://localhost:8080/students
+
+##
