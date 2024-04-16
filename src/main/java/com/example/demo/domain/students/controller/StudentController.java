@@ -24,23 +24,20 @@ public class StudentController {
     public StudentController(StudentService studentService){
         this.studentService = studentService;
     }
-    /*
+
     @PostMapping
-    public ResponseEntity<EntityModel<Student>> addStudent(@RequestBody StudentRequest student){
-        Student savedStudent = studentService.saveStudent(Student.of(student));
-        final EntityModel<Student> entityModel = EntityModel.of(savedStudent);
-
-        return new ResponseEntity<>(entityModel, HttpStatus.CREATED);
+    public ResponseEntity<Student> addStudent(@RequestBody Student student){
+        Student savedStudent = studentService.saveStudent(student);
+        return  new ResponseEntity<>(savedStudent, HttpStatus.CREATED);
     }
 
-    @GetMapping("/id")
-    public ResponseEntity<Student> getStudentById(@PathVariable Long id) {
+    @GetMapping("/{id}")
+    public ResponseEntity<Student> getStudentById(@PathVariable Long id){
         return studentService.findById(id)
-                .map(student -> new ResponseEntity<student, HttpStatus.OK>())
+                .map(student -> new ResponseEntity<>(student, HttpStatus.OK))
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
-
     }
-    */
+
 
     @GetMapping // 학생 path 받으면 전체 학생 리스트 리턴
     @Operation(summary = "전체 학생 리스트를 내려 준다.")

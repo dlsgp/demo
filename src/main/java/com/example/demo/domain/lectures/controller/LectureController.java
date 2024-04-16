@@ -35,11 +35,11 @@ public class LectureController {
 //            @ApiResponse(responseCode = "200", description = "정상적으로 조회 완료"),
 //            @ApiResponse(responseCode = "404", description = "존재하지 않는 강좌를 조회한 경우")
 //    })
-    public ResponseEntity<Lecture> getLecture(@PathVariable Long id) {
-        return lectureService.findById(id)
-                .map(lecture -> ResponseEntity.ok(lecture))
-                .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
-    }
+//    public ResponseEntity<Lecture> getLecture(@PathVariable Long id) {
+//        return lectureService.findById(id)
+//                .map(lecture -> ResponseEntity.ok(lecture))
+//                .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+//    }
 
     @DeleteMapping("/{id}")
     @Operation(summary = "하나의 강좌를 삭제합니다.")
